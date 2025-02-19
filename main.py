@@ -1,10 +1,11 @@
 import os
-from helpers import draw_board, check_turn
+from helpers import draw_board, check_turn, check_for_win
 
 spots = {1: '1', 2: '2', 3: '3', 4: '4', 5: '5',
          6: '6', 7: '7', 8: '8', 9: '9'}
 
 playing = True
+complete = False
 turn = 0
 previous_turn = -1
 
@@ -28,3 +29,12 @@ while playing:
             # If all valid, updates the board
             turn += 1
             spots[int(choice)] = check_turn(turn)
+    
+    # Check if game has ended (with someone winning or a tie)
+    if check_for_win(spots):
+        playing = False
+        complete = True
+    if turn > 8: 
+        playing = False
+
+    
