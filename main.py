@@ -8,14 +8,17 @@ playing = True
 turn = 0
 
 while playing:
-    #Reset the screen
+    # Reset the screen
     os.system('cls' if os.name == 'nt' else 'clear')
     draw_board(spots)
-    #Get input from player
+    # Get input from player
     choice = input()
     if choice == 'q':
         playing = False
+    # Check if player has given a number from 1 - 9
     elif str.isdigit(choice) and int(choice) in spots:
+        # Checks if spot has been taken previously
         if not spots[int(choice)] in {'X', 'O'}:
+            # If all valid, updates the board
             turn += 1
             spots[int(choice)] = check_turn(turn)
