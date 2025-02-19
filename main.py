@@ -6,11 +6,15 @@ spots = {1: '1', 2: '2', 3: '3', 4: '4', 5: '5',
 
 playing = True
 turn = 0
+previous_turn = -1
 
 while playing:
     # Reset the screen
     os.system('cls' if os.name == 'nt' else 'clear')
     draw_board(spots)
+    if previous_turn == turn:
+        print("Sorry, it looks like you have selected in invalid spot, but you can go ahead and select another.")
+    previous_turn = turn
     print("Player " + str((turn % 2) +1) + "'s turn: Pick your spot or press q to quit")
     # Get input from player
     choice = input()
