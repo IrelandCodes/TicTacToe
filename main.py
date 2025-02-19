@@ -37,4 +37,19 @@ while playing:
     if turn > 8: 
         playing = False
 
+# Draw board for a last time to show result
+os.system('cls' if os.name == 'nt' else 'clear')
+draw_board(spots)
+
+# Print Game Outcome
+if complete == True:
+    if check_turn(turn) == 'X':
+        print('Congratulations Player 1, you went first and you finished first as well! Player 1 Wins!')
+    else:
+        print('Congratulations Player 2, you were the underdog here but you managed to win! Player 2 Wins!')
+else:
+    # Tied game
+    print("Sorry, you both played well, but not well enough. No Winner :(")
+
+print("Thank you for playing!")
     
