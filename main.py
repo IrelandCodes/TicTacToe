@@ -12,6 +12,7 @@ while playing:
     # Reset the screen
     os.system('cls' if os.name == 'nt' else 'clear')
     draw_board(spots)
+    # Let the player know if invalid turn
     if previous_turn == turn:
         print("Sorry, it looks like you have selected in invalid spot, but you can go ahead and select another.")
     previous_turn = turn
